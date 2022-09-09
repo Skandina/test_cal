@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-	  sh 'npm run unit-test'
+	  sh 'npm run test-unit'
       } 
     }
     stage('Integration') {
