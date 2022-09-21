@@ -22,6 +22,15 @@ pipeline {
 	   sh 'npm run test-integration'
       }
     }
+    stage('Delivery') {
+      when {
+ 	branch 'main'
+      }
+      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        def im = docker.build("skandina/express-cacluator")
+        im.push()
+      }
+    }
   } 
 }     
 
