@@ -26,9 +26,11 @@ pipeline {
       when {
  	branch 'main'
       }
-      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-        def im = docker.build("skandina/express-cacluator")
-        im.push()
+      steps {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+          def im = docker.build("skandina/express-cacluator")
+          im.push()
+        }
       }
     }
   } 
