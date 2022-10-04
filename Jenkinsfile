@@ -1,17 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Prebuild') {
+    stage('Prebuild1') {
       steps {
 	    sh 'npm install'
       }
     }
-    stage('Unit test') {
+    stage('Unit test2') {
        steps {
 	  sh 'npm run test-unit'
       } 
     }
-    stage('Integration') {
+    stage('Integration3') {
       when {
          anyOf {
             branch 'develop';
@@ -22,7 +22,7 @@ pipeline {
 	   sh 'npm run test-integration'
       }
     }
-    stage('Delivery') {
+    stage('Delivery4') {
       when {
  	branch 'main'
       }
